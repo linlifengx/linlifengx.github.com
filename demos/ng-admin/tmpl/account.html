@@ -1,0 +1,24 @@
+<div ng-controller="account" class="page">
+	<div class="header">
+		<form ng-submit="query()">
+			账户：<input name="login" ng-model="queryForm.login"/>
+			姓名：<input name="name" ng-model="queryForm.name"/>
+			<input type="submit" value="查询"/>
+		</form>
+	</div>
+	<div class="body">
+		<div class="table-wrap">
+			<div class="header text-danger">
+				合计 余额:{{total | number:2}}
+			</div>
+			<div my-table titles="titles" rows="list" op="detail" optext="查看详细"></div>
+			<div class="footer"></div>
+			<div class="loading" ng-show="pager.status=='loading'">
+				<div class="msg">正在加载数据</div>
+			</div>
+			<div class="loading" ng-show="false">
+				<div class="msg">加载失败</div>
+			</div>
+		</div>
+	</div>
+</div>
