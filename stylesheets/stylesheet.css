@@ -265,6 +265,15 @@ img {
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
+html {
+  height: 100%;
+}
+
+body {
+  background: #f2f2f2;
+  position: relative;
+  padding-bottom: 1px;
+}
 
 .outer {
   width: 100%;
@@ -327,9 +336,9 @@ Full-Width Styles
 
 
 #main_content_wrap {
-  background: #f2f2f2;
-  border-top: 1px solid #111;
-  border-bottom: 1px solid #111;
+  margin-bottom: 90px;
+  padding-bottom: 90px;
+  min-height: 100%;
 }
 
 #main_content {
@@ -338,6 +347,8 @@ Full-Width Styles
 
 #footer_wrap {
   background: #212121;
+  position: absolute;
+  bottom: 0;
 }
 #comments {
   border-top: 1px solid #000;
