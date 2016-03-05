@@ -1,0 +1,215 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #222;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+body > div > .content {
+    width: 980px;
+    margin: 0 auto;
+}
+
+a {
+    color: #0084DA;
+}
+
+.base-info {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: #009AFF;
+    color: #fff;
+}
+
+.base-info > .content > .avatar {
+    background: #fff;
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.base-info > .content > .avatar > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.base-info > .content > .name {
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    padding-top: 10px;
+}
+
+.base-info > .content > .job-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.base-info > .content > .email {
+    float: left;
+    padding-right: 20px;
+    border-right: 1px solid;
+}
+
+.base-info > .content > .phone {
+    float: left;
+    padding-left: 20px;
+}
+
+.base-info > .content > .self-esteem {
+    clear: both;
+}
+
+
+.skill, .projects, .works, .education {
+    background: #fff;
+    border-top: 4px solid #009AFF;
+    padding: 30px 0;
+}
+
+.skill > .content > .title,
+.projects > .content > .title,
+.works > .content > .title,
+.education > .content > .title {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.projects .project {
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    overflow: auto;
+}
+
+.projects .project.first {
+    border-top: none;
+}
+
+.projects .project > .name {
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+.projects .project > .name:before {
+    display: block;
+    content: "";
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border-radius: 100%;
+    border: 4px solid #008CE8;
+    float: left;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+
+.projects .project > .picture {
+    float: right;
+    width: 400px;
+    height: 200px;
+    margin-left: 10px;
+}
+
+.projects .project > .picture > img{
+    width: 100%;
+    height: 100%;
+}
+
+.works {
+    background: #fff;
+    padding: 0;
+}
+
+.works > .content {
+    position: relative;
+    padding: 30px 0;
+}
+
+.works > .content:before {
+    position: absolute;
+    width: 4px;
+    background: #009AFF;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 278px;
+}
+
+.works .work-experience {
+    overflow: auto;
+    padding-bottom: 30px;
+}
+
+.works .work-experience > .company {
+    width: 250px;
+    color: #0084DA;
+    height: 60px;
+    line-height: 60px;
+    float: left;
+    text-align: right;
+    font-size: 16px;
+}
+
+.works .work-experience > .time {
+    width: 250px;
+    float: left;
+    clear: both;
+    text-align: right;
+}
+
+.works .work-experience > .describe {
+    overflow: auto;
+    padding-left: 80px;
+    padding-top: 60px;
+    position: relative;
+}
+
+.works .work-experience > .describe:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    border: 4px solid #009AFF;
+    background: #fff;
+    border-radius: 100%;
+    top: 60px;
+    left: 20px;
+    box-shadow: 0 0 0 4px #fff;
+}
+
+.education {
+  background: #009AFF;
+  color: #fff;
+  padding-bottom: 50px;
+}
+
+.education > .content > .university {
+  padding-left: 40px;
+  position: relative;
+  padding-top: 10px;
+}
+
+.education > .content > .university:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border: 4px solid #fff;
+  background: #009AFF;
+  border-radius: 100%;
+  top: 11px;
+  left: 10px;
+}
