@@ -20,7 +20,7 @@
         document.addEventListener('touchstart', function (e) {
           e.preventDefault()
           startY = e.targetTouches[0].screenY
-          element.classList.remove('end')
+          element.className = ''
         })
         document.addEventListener('touchmove', function (e) {
           var y = e.targetTouches[0].screenY
@@ -32,7 +32,7 @@
         })
         document.addEventListener('touchend', function (e) {
           element.style.transform = 'translateY(0px)'
-          element.classList.add('end')
+          element.className = 'end'
         })
       }
     </script>
