@@ -28,11 +28,11 @@
           if (moveY < 0) {
             moveY = 0;
           }
-          element.style.webkitTransform = 'translateY(' + translateY(moveY) +'px)';
+          element.style.webkitTransform = 'translate(0, ' + translateY(moveY) +'px)';
           element.textContent = moveY;
         })
         document.addEventListener('touchend', function (e) {
-          element.style.webkitTransform = 'translateY(0px)';
+          element.style.webkitTransform = 'translate(0, 0)';
           element.className = 'end';
         })
       }
