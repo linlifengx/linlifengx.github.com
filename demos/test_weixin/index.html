@@ -29,6 +29,7 @@
             moveY = 0
           }
           element.style.transform = 'translateY(' + translateY(moveY) +'px)'
+          element.textContent = moveY
         })
         document.addEventListener('touchend', function (e) {
           element.style.transform = 'translateY(0px)'
