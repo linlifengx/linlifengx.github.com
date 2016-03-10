@@ -17,13 +17,16 @@
           if (moveY < 0) {
             moveY = 0
           }
-          document.body.style.paddingTop = moveY + 'px'
+          document.body.style.transform = 'translate3d(0, ' + moveY +'px, 0)'
         })
       }
     </script>
     <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
     div {
-      position: relative;
       background-color: red;
       height: 800px;
     }
