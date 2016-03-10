@@ -7,33 +7,33 @@
     <script>
       function translateY (moveY) {
         if (moveY < 80) {
-          return moveY*0.8
+          return moveY*0.8;
         } else if (moveY < 200) {
-          return (moveY - 80)*0.4 + 80*0.8
+          return (moveY - 80)*0.4 + 80*0.8;
         } else {
-          return (moveY - 200)*0.1 + (moveY - 80)*0.4 + 80*0.8
+          return (moveY - 200)*0.1 + (moveY - 80)*0.4 + 80*0.8;
         }
       }
       window.onload = function () {
-        var startY = 0
-        var element = document.getElementById('test')
+        var startY = 0;
+        var element = document.getElementById('test');
         document.addEventListener('touchstart', function (e) {
-          e.preventDefault()
-          startY = e.targetTouches[0].screenY
-          //element.className = ''
+          e.preventDefault();
+          startY = e.targetTouches[0].screenY;
+          element.className = '';
         })
         document.addEventListener('touchmove', function (e) {
-          var y = e.targetTouches[0].screenY
-          var moveY = y - startY
+          var y = e.targetTouches[0].screenY;
+          var moveY = y - startY;
           if (moveY < 0) {
-            moveY = 0
+            moveY = 0;
           }
-          element.style.transform = 'translateY(' + translateY(moveY) +'px)'
-          element.textContent = moveY
+          element.style.webkitTransform = 'translateY(' + translateY(moveY) +'px)';
+          element.textContent = moveY;
         })
         document.addEventListener('touchend', function (e) {
-          element.style.transform = 'translateY(0px)'
-          //element.className = 'end'
+          element.style.webkitTransform = 'translateY(0px)';
+          element.className = 'end';
         })
       }
     </script>
