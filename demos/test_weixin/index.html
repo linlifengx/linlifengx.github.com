@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <script>
+      function translateY (moveY) {
+        if (moveY < 80) {
+          return moveY*0.8
+        } else if (moveY < 200) {
+          return (moveY - 80)*0.4 + 80*0.8
+        } else {
+          return (moveY - 200)*0.1 + (moveY - 80)*0.4 + 80*0.8
+        }
+      }
       window.onload = function () {
         var startY = 0
+        var element = document.getElementById('test')
         document.addEventListener('touchstart', function (e) {
           e.preventDefault()
           startY = e.targetTouches[0].screenY
+          element.classList.remove('end')
         })
         document.addEventListener('touchmove', function (e) {
           var y = e.targetTouches[0].screenY
@@ -17,7 +28,11 @@
           if (moveY < 0) {
             moveY = 0
           }
-          document.getElementById('test').style.webkitTransform = 'translate3d(0, ' + moveY +'px, 0)'
+          element.style.transform = 'translateY(' + translateY(moveY) +'px)'
+        })
+        document.addEventListener('touchend', function (e) {
+          element.style.transform = 'translateY(0px)'
+          element.classList.add('end')
         })
       }
     </script>
@@ -29,6 +44,10 @@
     div {
       background-color: red;
       height: 800px;
+      will-change: true;
+    }
+    .end {
+      -webkit-transition: transform 0.5s ease;
     }
     </style>
   </head>
