@@ -2,16 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <script>
       window.onload = function () {
+        var startY = 0
         document.addEventListener('touchstart', function (e) {
           e.preventDefault()
+          startY = e.targetTouches[0].screenY
+        })
+        document.addEventListener('touchmove', function (e) {
+          var y = e.targetTouches[0].screenY
+          var moveY = y - startY
+          if (moveY < 0) {
+            moveY = 0
+          }
+          document.body.style.paddingTop = moveY + 'px'
         })
       }
     </script>
+    <style>
+    div {
+      position: relative;
+      background-color: red;
+      height: 800px;
+    }
+    </style>
   </head>
   <body>
-    测试
+    <div>
+      asdfasdf
+    </div>
   </body>
 </html>
