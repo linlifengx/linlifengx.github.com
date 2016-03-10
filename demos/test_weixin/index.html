@@ -20,7 +20,7 @@
         document.addEventListener('touchstart', function (e) {
           e.preventDefault();
           startY = e.targetTouches[0].screenY;
-          element.className = '';
+          element.style.webkitTransition = '';
         })
         document.addEventListener('touchmove', function (e) {
           var y = e.targetTouches[0].screenY;
@@ -32,8 +32,8 @@
           element.textContent = moveY;
         })
         document.addEventListener('touchend', function (e) {
+          element.style.webkitTransition = '-webkit-transform 0.5s ease'
           element.style.webkitTransform = 'translate3d(0, 0, 0)';
-          element.className = 'end';
         })
       }
     </script>
@@ -45,10 +45,6 @@
     div {
       background-color: red;
       height: 800px;
-      will-change: true;
-    }
-    .end {
-      -webkit-transition: -webkit-transform 0.5s ease;
     }
     </style>
   </head>
