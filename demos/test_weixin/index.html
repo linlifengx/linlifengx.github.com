@@ -117,12 +117,10 @@
         <div class="logo"></div>
         <div class="web-login">
           <div class="login-input">
-            <input id="user" autocomplete="off">
-            <div class="placeholder">号码/手机/邮箱</div>
+            <input id="user" autocomplete="off" placeholder="QQ号码/手机/邮箱">
           </div>
           <div class="password-input">
-            <input id="password" maxlength="16" type="password" autocorrect="off">
-            <div class="placeholder">请输入您的密码</div>
+            <input id="password" maxlength="16" type="password" autocorrect="off" placeholder="请输入您的QQ密码">
           </div>
           <div class="login-button">登 录</div>
           <div class="feedback">
@@ -133,20 +131,6 @@
       </div>
     </div>
     <script>
-      function placeholder () {
-        if (this.value) {
-          this.nextElementSibling.style.display = 'none'
-        } else {
-          this.nextElementSibling.style.display = 'block'
-        }
-      }
-      (function () {
-        document.getElementById('user').oninput = placeholder;
-        document.getElementById('password').oninput = placeholder;
-        document.getElementById('user').oninput();
-        document.getElementById('password').oninput();
-      })()
-
       function translateY (moveY) {
         if (moveY < 80) {
           return moveY*0.8;
