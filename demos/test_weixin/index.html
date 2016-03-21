@@ -40,7 +40,7 @@
       margin: 0 auto;
       margin-bottom: 20px;
       background-size: 244px 100px;
-      background-image: url(http://mat1.gtimg.com/www/webapp/images/shipei_logo.png);
+      background-image: url(./shipei_logo.png);
     }
     .web-login {
       width: 290px;
@@ -50,10 +50,14 @@
       border-bottom: 1px solid #eaeaea;
       background: #fff;
       border-radius: 4px 4px 0 0;
+      position: relative;
+      z-index: 0;
     }
     .password-input {
       background: #fff;
       border-radius: 0 0 4px 4px;
+      position: relative;
+      z-index: 0;
     }
     .login-input > input, .password-input > input {
       -webkit-tap-highlight-color: rgba(255,255,255,0);
@@ -95,6 +99,16 @@
       float: right;
       padding: 15px 10px;
     }
+    .placeholder {
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      color: #AAAAAA;
+      font-size: 16px;
+      padding-left: 15px;
+      line-height: 44px;
+    }
     </style>
   </head>
   <body>
@@ -103,10 +117,12 @@
         <div class="logo"></div>
         <div class="web-login">
           <div class="login-input">
-            <input autocomplete="off" placeholder="&#x0051;&#x0051;号码/手机/邮箱">
+            <input id="user" autocomplete="off">
+            <div class="placeholder">QQ号码/手机/邮箱</div>
           </div>
           <div class="password-input">
-            <input maxlength="16" type="password" autocorrect="off" placeholder="请输入您的&#x0051;&#x0051;密码">
+            <input id="password" maxlength="16" type="password" autocorrect="off">
+            <div class="placeholder">请输入您的QQ密码</div>
           </div>
           <div class="login-button">登 录</div>
           <div class="feedback">
@@ -117,6 +133,20 @@
       </div>
     </div>
     <script>
+      function placeholder () {
+        if (this.value) {
+          this.nextElementSibling.style.display = 'none'
+        } else {
+          this.nextElementSibling.style.display = 'block'
+        }
+      }
+      (function () {
+        document.getElementById('user').oninput = placeholder;
+        document.getElementById('password').oninput = placeholder;
+        document.getElementById('user').oninput();
+        document.getElementById('password').oninput();
+      })()
+
       function translateY (moveY) {
         if (moveY < 80) {
           return moveY*0.8;
