@@ -103,10 +103,10 @@
         <div class="logo"></div>
         <div class="web-login">
           <div class="login-input">
-            <input autocomplete="off" placeholder="QQ号码/手机/邮箱">
+            <input autocomplete="off" placeholder="&#x0051;&#x0051;号码/手机/邮箱">
           </div>
           <div class="password-input">
-            <input maxlength="16" type="password" autocorrect="off" placeholder="请输入您的QQ密码">
+            <input maxlength="16" type="password" autocorrect="off" placeholder="请输入您的&#x0051;&#x0051;密码">
           </div>
           <div class="login-button">登 录</div>
           <div class="feedback">
@@ -131,9 +131,9 @@
         var element = document.getElementById('wrap');
         document.addEventListener('touchstart', function (e) {
           if (e.targetTouches[0].target.tagName == "INPUT") {
-            //e.targetTouches[0].target.focus();
+            e.targetTouches[0].target.focus();
           }
-          //e.preventDefault();
+          e.preventDefault();
           startY = e.targetTouches[0].screenY;
           element.style.webkitTransition = '';
         })
