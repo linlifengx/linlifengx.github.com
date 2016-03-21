@@ -1,9 +1,121 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+    <title>手机统一登录</title>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+    html {
+      height: 100%;
+    }
+    body {
+      background: url(bg.png) no-repeat #282B2D;
+      background-size: 100% auto;
+      font-size: 16px;
+      height: 100%;
+    }
+    input:focus {
+      outline: none;
+    }
+    #wrap {
+      background-color: #eee;
+      min-height: 100%;
+    }
+    .content {
+      padding-top: 30px;
+      margin: 0 auto;
+      width: 320px;
+      height: 500px;
+    }
+    .logo {
+      height: 100px;
+      width: 244px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      background-size: 244px 100px;
+      background-image: url(http://mat1.gtimg.com/www/webapp/images/shipei_logo.png);
+    }
+    .web-login {
+      width: 290px;
+      margin: 0 auto;
+    }
+    .login-input {
+      border-bottom: 1px solid #eaeaea;
+      background: #fff;
+      border-radius: 4px 4px 0 0;
+    }
+    .password-input {
+      background: #fff;
+      border-radius: 0 0 4px 4px;
+    }
+    .login-input > input, .password-input > input {
+      -webkit-tap-highlight-color: rgba(255,255,255,0);
+      width: 273px;
+      height: 44px;
+      color: #000;
+      border: 0;
+      background: 0;
+      padding-left: 15px;
+      font-size: 16px;
+      -webkit-appearance: none;
+    }
+    .login-button {
+      width: 290px;
+      height: 44px;
+      line-height: 44px;
+      background: #146fdf;
+      border: 0;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 15px;
+    }
+    .feedback {
+      width: 290px;
+      position: relative;
+      margin-top: 15px;
+      overflow: hidden;
+      color: #246183;
+      line-height: 14px;
+      font-size: 14px;
+    }
+    .feedback > .left {
+      float: left;
+      padding: 15px 10px;
+    }
+    .feedback > .right {
+      float: right;
+      padding: 15px 10px;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="content">
+        <div class="logo"></div>
+        <div class="web-login">
+          <div class="login-input">
+            <input autocomplete="off" placeholder="QQ号码/手机/邮箱">
+          </div>
+          <div class="password-input">
+            <input maxlength="16" type="password" autocorrect="off" placeholder="请输入您的QQ密码">
+          </div>
+          <div class="login-button">登 录</div>
+          <div class="feedback">
+            <span class="left">忘了密码？</span>
+            <span class="right">注册新帐号</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <script>
       function translateY (moveY) {
         if (moveY < 80) {
@@ -14,11 +126,14 @@
           return (moveY - 200)*0.1 + (moveY - 80)*0.4 + 80*0.8;
         }
       }
-      window.onload = function () {
+      (function () {
         var startY = 0;
-        var element = document.getElementById('test');
+        var element = document.getElementById('wrap');
         document.addEventListener('touchstart', function (e) {
-          e.preventDefault();
+          if (e.targetTouches[0].target.tagName == "INPUT") {
+            //e.targetTouches[0].target.focus();
+          }
+          //e.preventDefault();
           startY = e.targetTouches[0].screenY;
           element.style.webkitTransition = '';
         })
@@ -29,28 +144,12 @@
             moveY = 0;
           }
           element.style.webkitTransform = 'translate3d(0, ' + translateY(moveY) +'px, 0)';
-          element.textContent = moveY;
         })
         document.addEventListener('touchend', function (e) {
           element.style.webkitTransition = '-webkit-transform 0.5s ease'
           element.style.webkitTransform = 'translate3d(0, 0, 0)';
         })
-      }
+      })()
     </script>
-    <style>
-    html, body {
-      padding: 0;
-      margin: 0;
-    }
-    div {
-      background-color: red;
-      height: 800px;
-    }
-    </style>
-  </head>
-  <body>
-    <div id="test">
-      asdfasdf
-    </div>
   </body>
 </html>
